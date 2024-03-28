@@ -17,17 +17,11 @@ public class App extends Application {
 
     private static Scene scene;
 
+   
+
     @Override
     public void start(Stage stage) throws IOException {
-        WebView webView = new WebView();
-        
-        // Load the YouTube video
-        webView.getEngine().load("https://www.youtube.com/embed/j3ClvAk-0sw");
-        
-        // Create a scene and add the WebView to it
-        scene = new Scene(webView, 640, 480);
-        
-        // Set the scene to the stage and show it
+        scene = new Scene(loadFXML("PlayerController"));
         stage.setScene(scene);
         stage.show();
     }
