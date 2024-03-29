@@ -14,8 +14,6 @@ public class PlayerVideo implements Initializable{
     @FXML
     private WebView playervideo;
 
-    
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.playervideo.getEngine().load("https://www.youtube.com/embed/UmnxcjRk37Q");

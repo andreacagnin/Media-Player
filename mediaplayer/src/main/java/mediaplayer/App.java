@@ -18,9 +18,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        //RICHIESTA AL SERVER
+        HttpHandler http = new HttpHandler();
+        StringBuilder response = new StringBuilder();
+
+        response = http.httpRequest("GET", "http://25.38.122.1/php/films_request.php");
+
+        //ELABORAZIONE DELLA RICHIESTA CON JAXB
+
+        //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
         scene = new Scene(loadFXML("SchedaVideoController"));
         stage.setScene(scene);
         stage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {
