@@ -9,12 +9,12 @@ $conn = new mysqli($h, $u, $p, $d);
 //------------ CONNESSIONE AL DATABASE ------------
 
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
-$q = 'SELECT * FROM Film AS F INNER JOIN regista AS R ON F.id_regista = R.id_regista WHERE id_film = ' .$_GET["id_film"];
+$q = 'SELECT id_film, titolo, copertina FROM film';
 
 $rows = $conn -> query($q);
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
 
-//------------ INVIO DEI DATI AL CLIENT ------------ 
+//------------ INVIO DEI DATI AL CLIENT ------------
 $xml = new SimpleXMLElement('<films/>');
 foreach($rows as $r)
 {
