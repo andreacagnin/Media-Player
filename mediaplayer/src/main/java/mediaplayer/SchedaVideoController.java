@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 
-public class PlayerController {
+public class SchedaVideoController {
     @FXML
     void btnOKClicked(ActionEvent event) {
       

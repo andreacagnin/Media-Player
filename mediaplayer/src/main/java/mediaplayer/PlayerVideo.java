@@ -23,7 +23,7 @@ public class PlayerVideo implements Initializable{
     @FXML
     void btnBackClicked(ActionEvent event) {
         try {
-            App.setRoot("PlayerController");
+            App.setRoot("SchedaVideoController");
             playervideo.getEngine().load(null);
         } catch (IOException e) {
             e.printStackTrace();

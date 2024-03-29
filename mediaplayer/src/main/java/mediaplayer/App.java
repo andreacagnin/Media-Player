@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javafx.scene.web.WebView;
 
 import java.io.IOException;
 
@@ -19,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("PlayerController"));
+        scene = new Scene(loadFXML("SchedaVideoController"));
         stage.setScene(scene);
         stage.show();
     }
