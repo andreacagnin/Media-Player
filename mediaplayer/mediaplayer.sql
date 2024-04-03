@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 28, 2024 alle 16:50
--- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.2.12
+-- Creato il: Apr 03, 2024 alle 14:05
+-- Versione del server: 10.4.27-MariaDB
+-- Versione PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `film` (
   `id_film` int(11) NOT NULL,
+  `titolo` varchar(100) NOT NULL,
+  `copertina` text NOT NULL,
   `descrizione` text DEFAULT NULL,
   `durata` time DEFAULT NULL,
   `data_produzione` date DEFAULT NULL,
   `paese_produzione` varchar(100) DEFAULT NULL,
   `id_regista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `film`
+--
+
+INSERT INTO `film` (`id_film`, `titolo`, `copertina`, `descrizione`, `durata`, `data_produzione`, `paese_produzione`, `id_regista`) VALUES
+(1, 'mao', 'pepepepepepep', 'maopao', '14:04:24', '2024-04-03', 'zulu', 1);
 
 -- --------------------------------------------------------
 
@@ -47,6 +56,13 @@ CREATE TABLE `regista` (
   `nome` varchar(100) DEFAULT NULL,
   `cognome` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `regista`
+--
+
+INSERT INTO `regista` (`id_regista`, `nome`, `cognome`) VALUES
+(1, 'damiano', 'gobbo');
 
 --
 -- Indici per le tabelle scaricate
