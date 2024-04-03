@@ -22,7 +22,7 @@ public class App extends Application {
         HttpHandler http = new HttpHandler();
         StringBuilder response = new StringBuilder();
 
-        response = http.httpRequest("GET", "http://25.38.122.1/php/films_request.php");
+        response = http.httpRequest("GET", "http://localhost/php/films_request.php");
 
         //ELABORAZIONE DELLA RICHIESTA CON JAXB
 
