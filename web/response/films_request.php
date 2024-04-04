@@ -9,7 +9,9 @@ $conn = new mysqli($h, $u, $p, $d);
 //------------ CONNESSIONE AL DATABASE ------------
 
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
-$q = 'SELECT id_film, titolo, copertina FROM film';
+$q = 
+'SELECT id_film, titolo, copertina 
+FROM film';
 
 $rows = $conn -> query($q);
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------

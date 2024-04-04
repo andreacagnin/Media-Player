@@ -9,7 +9,12 @@ $conn = new mysqli($h, $u, $p, $d);
 //------------ CONNESSIONE AL DATABASE ------------
 
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
-$q = 'SELECT * FROM Film AS F INNER JOIN regista AS R ON F.id_regista = R.id_regista WHERE id_film = ' .$_GET["id_film"];
+$q = 
+'SELECT * 
+FROM film AS F 
+INNER JOIN regista AS R USING (id_regista) 
+INNER JOIN country AS C ON F.paese_produzione = C.CountryID 
+WHERE id_film = ' .$_GET["id_film"];
 
 $rows = $conn -> query($q);
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
