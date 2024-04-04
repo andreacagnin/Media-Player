@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import jakarta.xml.bind.JAXBContext;
+
 /**
  * JavaFX App
  */
@@ -25,6 +27,7 @@ public class App extends Application {
         response = http.httpRequest("GET", "http://localhost/php/films_request.php");
 
         //ELABORAZIONE DELLA RICHIESTA CON JAXB
+        //JAXBContext JAXB = new JAXBContext();
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
         scene = new Scene(loadFXML("SchedaVideoController"));
