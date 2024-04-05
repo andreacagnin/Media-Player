@@ -27,7 +27,7 @@ public class App extends Application {
         HttpHandler http = new HttpHandler();
         StringBuilder response = new StringBuilder();
 
-        response = http.httpRequest("GET", "http://localhost/php/films_request.php");
+        response = http.httpRequest("GET", "http://192.168.0.11/php/films_request.php");
         
         //ELABORAZIONE DELLA RICHIESTA CON JAXB
         JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
@@ -35,11 +35,23 @@ public class App extends Application {
 
         ArrayFilms arrayfilms = new ArrayFilms();
         arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response.toString()));
+
+        SchedaVideoController url = new SchedaVideoController();
+
+        int ID;
+        String titolo, copertina;
         for (HeaderFilm films : arrayfilms.getFilms()) {
-            System.out.println("ID: " + films.getID());
-            System.out.println("Title: " + films.getTitolo());
-            System.out.println("Cover: " + films.getCopertina());
+            ID = films.getID();
+            System.out.println(ID);
+
+            titolo = films.getTitolo();
+            System.out.println(titolo);
+
+            copertina = films.getCopertina();
+            System.out.println(copertina);
             System.out.println();
+
+            url.setImageUrl(copertina);
         }
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
