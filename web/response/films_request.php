@@ -17,11 +17,10 @@ $rows = $conn -> query($q);
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
 
 //------------ INVIO DEI DATI AL CLIENT ------------
-$xml = new SimpleXMLElement('<Films/>');
+$xml = new SimpleXMLElement('<films/>');
 foreach($rows as $r)
 {
-    $id = 'film_' . $r['id_film'];
-    $film = $xml->addChild('film');
+    $film = $xml->addChild($id);
     foreach($r as $p => $v)
     {
         $film->addChild($p, $v);
