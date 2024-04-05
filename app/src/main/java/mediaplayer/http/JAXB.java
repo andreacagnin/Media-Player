@@ -1,4 +1,4 @@
-package mediaplayer;
+package mediaplayer.http;
 
 import java.io.*;
 import jakarta.xml.bind.*;
