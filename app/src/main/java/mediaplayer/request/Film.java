@@ -4,18 +4,8 @@ import java.util.*;
 import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "film")
-@XmlType(propOrder = { 
-    "id", 
-    "titolo", 
-    "copertina",
-    "descrizione",
-    "durata",
-    "data_produzione",
-    "paese_produzione",
-    "id_regista" 
-})
 public class Film {
-    private int id;
+    private int id_film;
     private String titolo;
     private String copertina;
     private String descrizione;
@@ -26,25 +16,16 @@ public class Film {
 
     public Film(){}
 
-    public Film(int id, String titolo, String copertina, String descrizione, String durata, Date data_prod, String paese_prod, int id_regista){
-        this.id = id;
-        this.titolo = titolo;
-        this.copertina = copertina;
-        this.descrizione = descrizione;
-        this.durata = durata;
-        this.data_produzione = data_prod;
-        this.paese_produzione = paese_prod;
-        this.id_regista = id_regista;
-    }
-
-    public int getId() {
-        return this.id;
+    @XmlElement(name = "id_film")
+    public int getID() {
+        return this.id_film;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_film = id;
     }
 
+    @XmlElement(name = "titolo")
     public String getTitolo() {
         return this.titolo;
     }
@@ -53,6 +34,7 @@ public class Film {
         this.titolo = titolo;
     }
 
+    @XmlElement(name = "copertina")
     public String getCopertina() {
         return this.copertina;
     }
@@ -61,6 +43,7 @@ public class Film {
         this.copertina = copertina;
     }
 
+    @XmlElement(name = "descrizione")
     public String getDescrizione() {
         return this.descrizione;
     }
@@ -69,6 +52,7 @@ public class Film {
         this.descrizione = descrizione;
     }
 
+    @XmlElement(name = "durata")
     public String getDurata() {
         return this.durata;
     }
@@ -77,6 +61,7 @@ public class Film {
         this.durata = durata;
     }
 
+    @XmlElement(name = "data_produzione")
     public Date getData_produzione() {
         return this.data_produzione;
     }
@@ -85,6 +70,7 @@ public class Film {
         this.data_produzione = data_produzione;
     }
 
+    @XmlElement(name = "paese_produzione")
     public String getPaese_produzione() {
         return this.paese_produzione;
     }
@@ -93,6 +79,7 @@ public class Film {
         this.paese_produzione = paese_produzione;
     }
 
+    @XmlElement(name = "id_regista")
     public int getId_regista() {
         return this.id_regista;
     }
