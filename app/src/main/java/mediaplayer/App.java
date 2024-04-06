@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.Stage;
+import mediaplayer.env.DotEnv;
 import mediaplayer.http.HttpHandler;
 import mediaplayer.request.*;
 import mediaplayer.view.*;
@@ -35,7 +36,7 @@ public class App extends Application {
         HttpHandler http = new HttpHandler();
         StringBuilder response = new StringBuilder();
 
-        response = http.httpRequest("GET", "http://localhost/php/films_request.php");
+        response = http.httpRequest("GET", new DotEnv().get("SERVER") + "/php/films_request.php");
         
         //ELABORAZIONE DELLA RICHIESTA CON JAXB
         JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
