@@ -1,30 +1,42 @@
 package mediaplayer;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.*;
 
 public class SchedaVideoController {
 
     @FXML
-    private Button button1;
+    private ImageView imageView1;
 
     @FXML
-    private Button button2;
+    private ImageView imageView2;
 
     @FXML
-    private Button button3;
+    private ImageView imageView3;
 
+    // This method can be called from somewhere, like initialization, to set images
     public void initialize() {
-        // Load images
-        Image image1 = new Image(getClass().getResourceAsStream("C:\\xampp\\htdocs\\media\\copertine\\be_good.jpg"));
-        Image image2 = new Image(getClass().getResourceAsStream("C:\\xampp\\htdocs\\media\\copertine\\be_good.jpg"));
-        Image image3 = new Image(getClass().getResourceAsStream("C:\\xampp\\htdocs\\media\\copertine\\be_good.jpg"));
+        // Set image for imageView1
+        Image image1 = new Image("http://localhost/media/copertine/be_good.jpg");
+        imageView1.setImage(image1);
 
-        // Set images on buttons
-        button1.setGraphic(new ImageView(image1));
-        button2.setGraphic(new ImageView(image2));
-        button3.setGraphic(new ImageView(image3));
+        // Set image for imageView2
+        Image image2 = new Image("http://localhost/media/copertine/be_good.jpg");
+        imageView2.setImage(image2);
+
+        // Set image for imageView3
+        Image image3 = new Image("http://localhost/media/copertine/be_good.jpg");
+        imageView3.setImage(image3);
     }
+
+    @FXML
+    void btnBackClicked(ActionEvent event) throws IOException {
+        App.setRoot("PlayerVideo");
+    }
+
+    
+
 }

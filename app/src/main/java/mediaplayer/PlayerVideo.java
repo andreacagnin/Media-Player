@@ -19,8 +19,8 @@ public class PlayerVideo implements Initializable{
         this.playervideo.getEngine().load("https://www.youtube.com/embed/UmnxcjRk37Q");
     }
     @FXML
-    void btnBackClicked(ActionEvent event) {
-        App.setScene("SchedaVideoController");
+    void btnBackClicked(ActionEvent event) throws IOException {
+        App.setRoot("SchedaVideoController");
         playervideo.getEngine().load(null);
     }
 

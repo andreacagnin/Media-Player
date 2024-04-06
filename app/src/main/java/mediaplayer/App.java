@@ -35,7 +35,7 @@ public class App extends Application {
         HttpHandler http = new HttpHandler();
         StringBuilder response = new StringBuilder();
 
-        response = http.httpRequest("GET", "http://192.168.0.11/php/films_request.php");
+        response = http.httpRequest("GET", "http://localhost/php/films_request.php");
         
         //ELABORAZIONE DELLA RICHIESTA CON JAXB
         JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
@@ -60,29 +60,19 @@ public class App extends Application {
         }
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
-        scene = new Scene(new FxmlManager().loadFXML("SchedaVideoController"));
+        scene = new Scene(loadFXML("SchedaVideoController"));
         stage.setScene(scene);
         stage.show();
+
     }
 
-    public static Stage getStage() {
-        return stage;
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
     }
 
-    public static void setScene(String fxml) {
-        scene.setRoot(new FxmlManager().loadFXML(fxml));
-    }
-
-    public static void setScene(Scene scene) {
-        stage.setScene(scene);
-    }
-
-    public static void setRoot(Node node) {
-        root.getChildren().add(node);
-    }
-
-    public static Group getRoot() {
-        return root;
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
     }
 
     public static void main(String[] args) {

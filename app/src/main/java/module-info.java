@@ -4,6 +4,7 @@ module mediaplayer {
     requires javafx.web;
     requires jakarta.xml.bind;
     requires javafx.graphics;
+    requires javafx.base;
 
     opens mediaplayer to javafx.fxml;
     opens mediaplayer.request to jakarta.xml.bind;
