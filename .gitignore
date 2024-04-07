@@ -1,8 +1,8 @@
-# Compiled class file
-*.class
+# # Compiled class file
+# *.class
 
-# Maven
-target/
+# # Maven
+# target/
 
 #Dot Env
 */.env
