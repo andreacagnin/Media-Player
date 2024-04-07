@@ -2,7 +2,7 @@
 *.class
 
 # Maven
-target/
+*/target/
 
 #Dot Env
-*/.env
+.env
