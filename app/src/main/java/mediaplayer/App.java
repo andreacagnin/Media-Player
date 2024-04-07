@@ -23,14 +23,13 @@ public class App extends Application {
 
     private static Group root;
     private static Scene scene;
+    private static Scene scene1;
     private static Stage stage;
 
     @Override
-    public void start(Stage x) throws IOException, JAXBException {
+    public void start(Stage stage) throws IOException, JAXBException {
 
         root = new Group();
-        scene = new Scene(root);
-        stage = new Stage();
 
         //RICHIESTA AL SERVER
         HttpHandler http = new HttpHandler();
@@ -45,7 +44,6 @@ public class App extends Application {
         ArrayFilms arrayfilms = new ArrayFilms();
         arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response.toString()));
 
-        SchedaVideoController schedaVideoController = new SchedaVideoController();
 
         int ID;
         String titolo, copertina;
@@ -68,7 +66,8 @@ public class App extends Application {
         // scene = new Scene(loadFXML("SchedaVideoController"));
 
 
-        Scene scene = new Scene(root);
+        scene = new Scene(root);
+        scene1= new Scene(new FxmlManager().loadFXML("PlayerVideo"));
         stage.setScene(scene);
         stage.show();
 
@@ -78,14 +77,29 @@ public class App extends Application {
         // stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+ 
+    public static Stage getStage() {
+        return stage;
+     }
+  
+     public static void setScene(String fxml) {
+        scene.setRoot(new FxmlManager().loadFXML(fxml));
+     }
+  
+     public static void setScene(Scene scene) {
+        stage.setScene(scene);
+     }
+  
+  
+     public static void setRoot(Node node) {
+        root.getChildren().add(node);
+     }
+  
+     public static Group getRoot() {
+        return root;
+     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
+     
 
     public static void main(String[] args) {
         launch();

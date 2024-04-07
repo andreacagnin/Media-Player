@@ -1,13 +1,12 @@
 package mediaplayer;
 
-import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.*;
 
 public class SchedaVideoController {
-
+    
     @FXML
     private ImageView imageView1;
 
@@ -16,8 +15,6 @@ public class SchedaVideoController {
 
     @FXML
     private ImageView imageView3;
-
-    public SchedaVideoController(){}
 
     // This method can be called from somewhere, like initialization, to set images
     public void setImage(String url) {
@@ -36,19 +33,13 @@ public class SchedaVideoController {
     }
 
     @FXML
-    void btnOKClicked(ActionEvent event) {
-      
-        try {
-            App.setRoot("PlayerVideo");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void btnOKClicked(ActionEvent event) {
+        
+        App.setScene("PlayerVideo");
+        
     }
 
-    // @FXML
-    // void btnBackClicked(ActionEvent event) throws IOException {
-    //     App.setRoot("PlayerVideo");
-    // }
+    
 
     
 
