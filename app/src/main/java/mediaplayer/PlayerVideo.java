@@ -14,14 +14,20 @@ public class PlayerVideo implements Initializable{
     @FXML
     private WebView playervideo;
 
+    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.playervideo.getEngine().load("https://www.youtube.com/embed/UmnxcjRk37Q");
     }
     @FXML
-    void btnBackClicked(ActionEvent event) throws IOException {
-        App.setRoot("SchedaVideoController");
-        playervideo.getEngine().load(null);
+    void btnBackClicked(ActionEvent event) {
+        try {
+            App.setRoot("SchedaVideoController");
+            playervideo.getEngine().load(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

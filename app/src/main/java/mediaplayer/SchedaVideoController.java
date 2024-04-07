@@ -17,25 +17,38 @@ public class SchedaVideoController {
     @FXML
     private ImageView imageView3;
 
+    public SchedaVideoController(){}
+
     // This method can be called from somewhere, like initialization, to set images
-    public void initialize() {
+    public void setImage(String url) {
         // Set image for imageView1
-        Image image1 = new Image("http://localhost/media/copertine/be_good.jpg");
+        System.out.println(url);
+        Image image1 = new Image(url);
         imageView1.setImage(image1);
 
         // Set image for imageView2
-        Image image2 = new Image("http://localhost/media/copertine/be_good.jpg");
+        Image image2 = new Image(url);
         imageView2.setImage(image2);
 
         // Set image for imageView3
-        Image image3 = new Image("http://localhost/media/copertine/be_good.jpg");
+        Image image3 = new Image(url);
         imageView3.setImage(image3);
     }
 
     @FXML
-    void btnBackClicked(ActionEvent event) throws IOException {
-        App.setRoot("PlayerVideo");
+    void btnOKClicked(ActionEvent event) {
+      
+        try {
+            App.setRoot("PlayerVideo");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    // @FXML
+    // void btnBackClicked(ActionEvent event) throws IOException {
+    //     App.setRoot("PlayerVideo");
+    // }
 
     
 

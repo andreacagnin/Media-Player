@@ -45,6 +45,8 @@ public class App extends Application {
         ArrayFilms arrayfilms = new ArrayFilms();
         arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response.toString()));
 
+        SchedaVideoController schedaVideoController = new SchedaVideoController();
+
         int ID;
         String titolo, copertina;
         for (HeaderFilm films : arrayfilms.getFilms()) {
@@ -61,10 +63,19 @@ public class App extends Application {
         }
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
-        scene = new Scene(loadFXML("SchedaVideoController"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SchedaVideoController.fxml"));
+        Parent root = loader.load();
+        // scene = new Scene(loadFXML("SchedaVideoController"));
+
+
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
+        SchedaVideoController controller = loader.getController();
+        controller.setImage(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        // stage.setScene(scene);
+        // stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
