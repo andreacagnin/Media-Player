@@ -6,14 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "mediaplayer.App",
-            "projectName": "app",
-            "vmArgs": "--module-path \"C:\\Program Files\\Java\\javafx-sdk-21.0.2\\lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
