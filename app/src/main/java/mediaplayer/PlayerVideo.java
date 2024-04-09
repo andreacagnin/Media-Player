@@ -1,5 +1,6 @@
 package mediaplayer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,6 +13,7 @@ public class PlayerVideo implements Initializable{
 
     @FXML
     private WebView playervideo;
+
     
 
     @Override
@@ -19,11 +21,13 @@ public class PlayerVideo implements Initializable{
         this.playervideo.getEngine().load("https://www.youtube.com/embed/UmnxcjRk37Q");
     }
     @FXML
-    private void btnBackClicked(ActionEvent event) {
-        
-           App.setScene("SchedaVideoController");
+    void btnBackClicked(ActionEvent event) {
+        try {
+            App.setRoot("SchedaVideoController");
             playervideo.getEngine().load(null);
-        
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
