@@ -43,6 +43,7 @@ L'unico parametro di input richiesto e' quello del id del film. Viene richiesto 
 Richiesta e risposta degli header dei film
 
 ----- IMG -----
+
 <img src="https://i.ibb.co/ZJ4764n/films-request.png" alt="films-request" border="0">
 
 Richiesta e risposta di un singolo film
