@@ -1,8 +1,10 @@
 package mediaplayer;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import mediaplayer.env.DotEnv;
 import mediaplayer.http.HttpHandler;
@@ -44,20 +46,24 @@ public class App extends Application {
         ArrayFilms arrayfilms = new ArrayFilms();
         arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response.toString()));
 
-        //SETTARE GLI ID AI BOTTONI
-
-
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SchedaVideoController.fxml"));
         Parent root = loader.load();
 
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
         controller = loader.getController();
         controller.setImage(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
         controller.setApp(this);
+        controller.setButtons();
+
+        //ELIMINARE IL -1 DOPO
+        for(int i = 0; i < controller.getButtons().size()-1; i++){
+            controller.getButton(i).setId(arrayfilms.getFilm(i).getID());
+            System.out.println(arrayfilms.getFilm(i).getID());
+        }
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
         
     }
 

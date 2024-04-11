@@ -15,15 +15,15 @@
          </font></Label>
       <Pane fx:id="buttonContainer" layoutX="50.0" layoutY="126.0" prefHeight="758.0" prefWidth="1814.0">
          <children>
-            <Button onAction="#btnOKClicked" layoutX="236.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
+            <Button fx:id="button1" onAction="#btnOKClicked" layoutX="236.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
                <graphic>
                   <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Button>
-            <Button onAction="#btnOKClicked" layoutX="1345.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
+            <Button fx:id="button2" onAction="#btnOKClicked" layoutX="1345.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
                <graphic>
                   <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Button>
-            <Button onAction="#btnOKClicked" layoutX="786.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
+            <Button fx:id="button3" onAction="#btnOKClicked" layoutX="786.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
                <graphic>
                   <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Button>

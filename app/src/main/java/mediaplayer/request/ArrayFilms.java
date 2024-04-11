@@ -16,6 +16,10 @@ public class ArrayFilms {
         return films;
     }
 
+    public HeaderFilm getFilm(int i){
+        return films.get(i);
+    }
+
     public void setFilms(ArrayList<HeaderFilm> films) {
         this.films = films;
     }
