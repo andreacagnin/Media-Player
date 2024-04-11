@@ -1,6 +1,8 @@
 package mediaplayer;
 
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.*;
@@ -15,6 +17,8 @@ public class SchedaVideoController {
 
     @FXML
     private ImageView imageView3;
+
+    private App app;
 
     public SchedaVideoController(){}
 
@@ -34,10 +38,13 @@ public class SchedaVideoController {
         imageView3.setImage(image3);
     }
 
+    public void setApp(App app){
+        this.app = app;
+    }
+
     @FXML
-    void btnOKClicked(ActionEvent event) {
-      
-        App.setScene1();
+    void btnOKClicked(ActionEvent event) throws IOException {
+        app.setScene1();
     }
 
 

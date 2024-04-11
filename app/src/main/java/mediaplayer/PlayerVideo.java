@@ -8,17 +8,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.web.WebView;
 
-public class PlayerVideo implements Initializable{
+public class PlayerVideo{
 
     @FXML
     private WebView playervideo;
 
-    
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        this.playervideo.getEngine().load("https://www.youtube.com/embed/UmnxcjRk37Q");
+    public void setVideo(String url) {
+        this.playervideo.getEngine().load(url);
     }
+    
     @FXML
     void btnBackClicked(ActionEvent event) {
         

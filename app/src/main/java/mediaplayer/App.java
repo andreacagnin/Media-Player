@@ -24,6 +24,7 @@ public class App extends Application {
     private static Group root;
     private static Scene scene;
     private static Stage stage;
+    private SchedaVideoController controller;
 
     @Override
     public void start(Stage stage) throws IOException, JAXBException {
@@ -43,60 +44,42 @@ public class App extends Application {
         ArrayFilms arrayfilms = new ArrayFilms();
         arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response.toString()));
 
-       
+        //SETTARE GLI ID AI BOTTONI
 
-        int ID;
-        String titolo, copertina;
-        for (HeaderFilm films : arrayfilms.getFilms()) {
-            ID = films.getID();
-            System.out.println(ID);
-
-            titolo = films.getTitolo();
-            System.out.println(titolo);
-
-            copertina = films.getCopertina();
-            System.out.println(copertina);
-            System.out.println();
-
-        }
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SchedaVideoController.fxml"));
         Parent root = loader.load();
-        // scene = new Scene(loadFXML("SchedaVideoController"));
-
 
         scene = new Scene(root);
-        
         stage.setScene(scene);
         stage.show();
 
-        SchedaVideoController controller = loader.getController();
+        controller = loader.getController();
         controller.setImage(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setApp(this);
         
-       
     }
 
     public static Stage getStage() {
         return stage;
-     }
+    }
   
-     public static void setScene(String fxml) {
+    public static void setScene(String fxml) {
         scene.setRoot(new FxmlManager().loadFXML(fxml));
-     }
+    }
   
-     public static void setScene(Scene scene) {
+    public static void setScene(Scene scene) {
         stage.setScene(scene);
-     }
+    }
   
-  
-     public static void setRoot(Node node) {
+    public static void setRoot(Node node) {
         root.getChildren().add(node);
-     }
+    }
   
-     public static Group getRoot() {
+    public static Group getRoot() {
         return root;
-     }
+    }
 
     public static void main(String[] args) {
         launch();
@@ -106,8 +89,16 @@ public class App extends Application {
         stage.setScene(scene);
     }
 
-    public static void setScene1() {
-        stage.setScene(new Scene(new FxmlManager().loadFXML("PlayerVideo")));
+    public void setScene1() throws IOException {
+        Scene scene;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PlayerVideo.fxml"));
+        Parent root = loader.load();
+
+        PlayerVideo controller2 = loader.getController();
+        controller2.setVideo("https://www.youtube.com/embed/UmnxcjRk37Q");
+
+        scene = new Scene(root);
+        stage.setScene(scene);
     }
 
 }
