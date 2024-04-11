@@ -23,7 +23,6 @@ public class App extends Application {
 
     private static Group root;
     private static Scene scene;
-    private static Scene scene1;
     private static Stage stage;
 
     @Override
@@ -68,14 +67,14 @@ public class App extends Application {
 
 
         scene = new Scene(root);
-        scene1 = new Scene(new FxmlManager().loadFXML("PlayerVideo"));
+        
         stage.setScene(scene);
         stage.show();
 
         SchedaVideoController controller = loader.getController();
         controller.setImage(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
-        // stage.setScene(scene);
-        // stage.show();
+        
+       
     }
 
     public static Stage getStage() {
@@ -108,7 +107,7 @@ public class App extends Application {
     }
 
     public static void setScene1() {
-        stage.setScene(scene1);
+        stage.setScene(new Scene(new FxmlManager().loadFXML("PlayerVideo")));
     }
 
 }
