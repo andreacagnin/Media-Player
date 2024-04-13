@@ -7,7 +7,7 @@ import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import mediaplayer.env.DotEnv;
-import mediaplayer.http.HttpHandler;
+import mediaplayer.http.*;
 import mediaplayer.request.*;
 import mediaplayer.view.*;
 
@@ -26,7 +26,11 @@ public class App extends Application {
     private static Group root;
     private static Scene scene;
     private static Stage stage;
+
     private SchedaVideoController controller;
+    private ArrayFilms arrayfilms;
+    private Request request;
+    private String response;
 
     @Override
     public void start(Stage stage) throws IOException, JAXBException {
@@ -34,17 +38,15 @@ public class App extends Application {
         root = new Group();
 
         //RICHIESTA AL SERVER
-        HttpHandler http = new HttpHandler();
-        StringBuilder response = new StringBuilder();
-
-        response = http.httpRequest("GET", new DotEnv().get("SERVER") + "/php/films_request.php");
+        request = new Request();
+        response = request.sendRequest("GET", new DotEnv().get("SERVER") + "/php/films_request.php").toString();
         
         //ELABORAZIONE DELLA RICHIESTA CON JAXB
         JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-        ArrayFilms arrayfilms = new ArrayFilms();
-        arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response.toString()));
+        arrayfilms = new ArrayFilms();
+        arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response));
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SchedaVideoController.fxml"));
@@ -57,8 +59,7 @@ public class App extends Application {
 
         //ELIMINARE IL -1 DOPO
         for(int i = 0; i < controller.getButtons().size()-1; i++){
-            controller.getButton(i).setId(arrayfilms.getFilm(i).getID());
-            System.out.println(arrayfilms.getFilm(i).getID());
+            controller.getButton(i).setId("" + arrayfilms.getFilm(i).getID());
         }
 
         scene = new Scene(root);
@@ -95,13 +96,23 @@ public class App extends Application {
         stage.setScene(scene);
     }
 
-    public void setScene1() throws IOException {
+    public void setScene1(String id) throws IOException, JAXBException {
         Scene scene;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PlayerVideo.fxml"));
         Parent root = loader.load();
 
+        request = new Request();
+        response = request.sendRequest("GET", new DotEnv().get("SERVER") + "/php/film_request.php?id_film=" + id).toString();
+        
+        JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+
+        arrayfilms = new ArrayFilms();
+        arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response));
+
         PlayerVideo controller2 = loader.getController();
-        controller2.setVideo("https://www.youtube.com/embed/UmnxcjRk37Q");
+        controller2.setVideo(arrayfilms.getFilm(Integer.parseInt(id)-1).getFilm());
 
         scene = new Scene(root);
         stage.setScene(scene);

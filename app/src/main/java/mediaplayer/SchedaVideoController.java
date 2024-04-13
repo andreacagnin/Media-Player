@@ -4,6 +4,7 @@ package mediaplayer;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import jakarta.xml.bind.JAXBException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -68,7 +69,6 @@ public class SchedaVideoController{
 
     @SuppressWarnings("exports")
     public Button getButton(int i){
-        System.out.println(buttons.get(i).getOnAction().toString() + "mao");
         return buttons.get(i);
     }
 
@@ -77,8 +77,13 @@ public class SchedaVideoController{
     }
 
     @FXML
-    void btnOKClicked(ActionEvent event) throws IOException {
-        app.setScene1();
+    void btnOKClicked(ActionEvent event) throws IOException, JAXBException {
+        for(int i = 0; i < buttons.size(); i++){
+            if(buttons.get(i) == event.getTarget()){
+                app.setScene1(buttons.get(i).getId());
+            }
+        }
+        
     }
 
 }

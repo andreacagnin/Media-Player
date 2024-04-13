@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.*;
 @XmlRootElement(name = "film")
 public class Film {
     private int id_film;
+    private String film;
     private String titolo;
     private String copertina;
     private String descrizione;
@@ -21,8 +22,18 @@ public class Film {
         return this.id_film;
     }
 
-    public void setId(int id) {
+    public void setID(int id) {
         this.id_film = id;
+    }
+
+    @XmlElement(name = "film")
+    public String getFilm(){
+        return this.film;
+    }
+
+    public void setFilm(String film){
+        
+        this.film = film;
     }
 
     @XmlElement(name = "titolo")
