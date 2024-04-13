@@ -17,7 +17,7 @@ $rows = $conn -> query($q);
 //------------ RICHIESTA ED ELABORAZIONE DI DATI DAL DATABASE ------------
 
 //------------ INVIO DEI DATI AL CLIENT ------------
-$xml = new SimpleXMLElement('<Films/>');
+$xml = new SimpleXMLElement('<films/>');
 foreach($rows as $r)
 {
     $film = $xml->addChild('film');

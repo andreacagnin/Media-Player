@@ -23,8 +23,7 @@ $rows = $conn -> query($q);
 $xml = new SimpleXMLElement('<films/>');
 foreach($rows as $r)
 {
-    $id = 'film_' . $r['id_film'];
-    $film = $xml->addChild($id);
+    $film = $xml->addChild('film');
     foreach($r as $p => $v)
     {
         $film->addChild($p, $v);
