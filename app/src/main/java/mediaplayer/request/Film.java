@@ -14,6 +14,8 @@ public class Film {
     private Date data_produzione;
     private String paese_produzione;
     private int id_regista;
+    private String nomeRegista;
+    private String cognomeRegista;
 
     public Film(){}
 
@@ -81,7 +83,7 @@ public class Film {
         this.data_produzione = data_produzione;
     }
 
-    @XmlElement(name = "paese_produzione")
+    @XmlElement(name = "CountryName")
     public String getPaese_produzione() {
         return this.paese_produzione;
     }
@@ -97,6 +99,24 @@ public class Film {
 
     public void setId_regista(int id_regista) {
         this.id_regista = id_regista;
+    }
+
+    @XmlElement(name = "nome")
+    public String getnomeRegista(){
+        return this.nomeRegista;
+    }
+
+    public void setnomeRegista(String nome){
+        this.nomeRegista = nome;
+    }
+
+    @XmlElement(name = "cognome")
+    public String getcognomeRegista(){
+        return this.cognomeRegista;
+    }
+
+    public void setcognomeRegista(String nome){
+        this.nomeRegista = nome;
     }
 
 }

@@ -31,6 +31,7 @@ public class App extends Application {
     private ArrayFilms arrayfilms;
     private Request request;
     private String response;
+    private JAXB jaxb;
 
     @Override
     public void start(Stage stage) throws IOException, JAXBException {
@@ -40,13 +41,9 @@ public class App extends Application {
         //RICHIESTA AL SERVER
         request = new Request();
         response = request.sendRequest("GET", new DotEnv().get("SERVER") + "/php/films_request.php").toString();
-        
-        //ELABORAZIONE DELLA RICHIESTA CON JAXB
-        JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-        arrayfilms = new ArrayFilms();
-        arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response));
+        jaxb = new JAXB(ArrayFilms.class);
+        arrayfilms = (ArrayFilms) jaxb.unmarshal(response);
 
         //CARICAMENTO SCHERMATA HOME CON GLI HEADER DEI FILM
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SchedaVideoController.fxml"));
@@ -105,14 +102,20 @@ public class App extends Application {
         request = new Request();
         response = request.sendRequest("GET", new DotEnv().get("SERVER") + "/php/film_request.php?id_film=" + id).toString();
         
-        JAXBContext jaxbContext = JAXBContext.newInstance(ArrayFilms.class);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-
-        arrayfilms = new ArrayFilms();
-        arrayfilms = (ArrayFilms) unmarshaller.unmarshal(new StringReader(response));
+        jaxb = new JAXB(ArrayFilms.class);
+        arrayfilms = (ArrayFilms) jaxb.unmarshal(response);
 
         PlayerVideo controller2 = loader.getController();
         controller2.setVideo(arrayfilms.getFilm(Integer.parseInt(id)-1).getFilm());
+
+        //DATI DEL FILM DA MOSTRARE
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getTitolo();
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getDescrizione();
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getDurata();
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getData_produzione();
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getPaese_produzione();
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getnomeRegista();
+        arrayfilms.getFilm(Integer.parseInt(id)-1).getcognomeRegista();
 
         scene = new Scene(root);
         stage.setScene(scene);
