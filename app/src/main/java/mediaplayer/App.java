@@ -61,6 +61,12 @@ public class App extends Application {
 
         scene = new Scene(root);
         stage.setScene(scene);
+
+        // Make the stage not resizable
+        stage.setResizable(false);
+
+        // Go full screen
+        stage.setFullScreen(true);
         stage.show();
         
     }
@@ -91,6 +97,10 @@ public class App extends Application {
 
     public static void setScene2() {
         stage.setScene(scene);
+        stage.setResizable(false);
+
+        // Go full screen
+        stage.setFullScreen(true);
     }
 
     public void setScene1(String id) throws IOException, JAXBException {
@@ -114,6 +124,10 @@ public class App extends Application {
 
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
+
+        // Go full screen
+        stage.setFullScreen(true);
     }
 
 }
