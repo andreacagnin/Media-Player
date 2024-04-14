@@ -100,10 +100,6 @@ public class SchedaVideoController{
         return buttons.get(i);
     }
 
-    public void setId(String id){
-        this.button1.setId(id);
-    }
-
     @FXML
     void btnOKClicked(ActionEvent event) throws IOException, JAXBException {
         for(int i = 0; i < buttons.size(); i++){

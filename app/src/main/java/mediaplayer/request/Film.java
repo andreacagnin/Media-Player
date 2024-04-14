@@ -28,13 +28,12 @@ public class Film {
         this.id_film = id;
     }
 
-    @XmlElement(name = "film")
+    @XmlElement(name = "film_path")
     public String getFilm(){
         return this.film;
     }
 
     public void setFilm(String film){
-        
         this.film = film;
     }
 

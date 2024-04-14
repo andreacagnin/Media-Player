@@ -110,17 +110,19 @@ public class App extends Application {
         jaxb = new JAXB(ArrayFilms.class);
         arrayfilms = (ArrayFilms) jaxb.unmarshal(response);
 
+        System.out.println("\n\n" + arrayfilms.getFilms().size());
+
         PlayerVideo controller2 = loader.getController();
-        controller2.setVideo(arrayfilms.getFilm(Integer.parseInt(id)-1).getFilm());
+        controller2.setVideo(arrayfilms.getFilm(0).getFilm());
 
         //DATI DEL FILM DA MOSTRARE
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getTitolo();
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getDescrizione();
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getDurata();
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getData_produzione();
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getPaese_produzione();
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getnomeRegista();
-        arrayfilms.getFilm(Integer.parseInt(id)-1).getcognomeRegista();
+        arrayfilms.getFilm(0).getTitolo();
+        arrayfilms.getFilm(0).getDescrizione();
+        arrayfilms.getFilm(0).getDurata();
+        arrayfilms.getFilm(0).getData_produzione();
+        arrayfilms.getFilm(0).getPaese_produzione();
+        arrayfilms.getFilm(0).getnomeRegista();
+        arrayfilms.getFilm(0).getcognomeRegista();
 
         scene = new Scene(root);
         stage.setScene(scene);
