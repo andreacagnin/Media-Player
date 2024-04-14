@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 05, 2024 alle 11:00
+-- Creato il: Apr 14, 2024 alle 17:04
 -- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.2.12
+-- Versione PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -298,7 +298,7 @@ INSERT INTO `country` (`CountryID`, `CountryName`, `TwoCharCountryCode`, `ThreeC
 
 CREATE TABLE `film` (
   `id_film` int(11) NOT NULL,
-  `film` text NOT NULL,
+  `film_path` text NOT NULL,
   `titolo` varchar(100) NOT NULL,
   `copertina` text NOT NULL,
   `descrizione` text DEFAULT NULL,
@@ -312,9 +312,13 @@ CREATE TABLE `film` (
 -- Dump dei dati per la tabella `film`
 --
 
-INSERT INTO `film` (`id_film`, `film`, `titolo`, `copertina`, `descrizione`, `durata`, `data_produzione`, `paese_produzione`, `id_regista`) VALUES
-(1, 'https://www.youtube.com/watch?v=fYgME5_PAzQ', 'Be Good', 'C:\\xampp\\htdocs\\media\\copertine', 'Paul - a workaholic independent filmmaker - takes charge of his sleepless baby, Pearl, when his wife, Mary, returns to work. He is slowly driven crazy by his inability to work and becomes the jerk he thought he\'d never be.', '01:10:00', '2012-06-22', 236, 1),
-(2, '\'13rue\'rv', 'l,mkjnhbuvfcd', 'plokijuhygtfr', ',ominubyvt', '13:19:27', '2024-04-05', 236, 1);
+INSERT INTO `film` (`id_film`, `film_path`, `titolo`, `copertina`, `descrizione`, `durata`, `data_produzione`, `paese_produzione`, `id_regista`) VALUES
+(1, 'https://www.youtube.com/embed/fYgME5_PAzQ', 'Be Good', 'media\\copertine\\be_good.jpg', 'Paul - a workaholic independent filmmaker - takes charge of his sleepless baby, Pearl, when his wife, Mary, returns to work. He is slowly driven crazy by his inability to work and becomes the jerk he thought he\'d never be.', '01:10:00', '2012-06-22', 236, 1),
+(2, 'https://www.youtube.com/embed/VEMF5NBjAY8', 'Il Buono Il Brutto Il Cattivo', 'media\\copertine\\il_buono_il_brutto_il_cattivo.jpg', 'Ambientato durante la guerra di secessione americana, nella metà dell’Ottocento, il film ha per protagonista tre uomini senza scrupoli, ognuno con le proprie regole morali che li collocano ai margini della società e della legge. Si tratta di Joe, detto il buono, Tuco, detto il brutto, e Sentenza, detto il cattivo. I primi due sono soliti collaborare inscenando alcune truffe, salvo poi tradirsi a vicenda. Le loro strade finiranno però per rincrociarsi lungo un percorso che porta ad un ricco tesoro nascosto. Alla ricerca di questo vi è però anche il temibile Sentenza. Ben presto i tre finiranno per scontrarsi all’ultimo sangue, mentre sullo sfondo l’America cambia per sempre.', '02:54:23', '1966-12-23', 109, 2),
+(3, 'https://www.youtube.com/embed/KOFu-sEvwuI', 'Downfall', 'media\\copertine\\downfall.jpg', 'Berlino, aprile 1945. Gli ultimi giorni della vita di Adolf Hitler nel bunker sotto la Cancelleria, dove il dittatore si era rifugiato insieme agli altri capi del regime nazista mentre l\'esercito russo si accingeva a conquistare la capitale tedesca.', '02:35:56', '2005-04-29', 83, 3),
+(4, 'https://www.dailymotion.com/embed/video/x8l6nmn?autoplay=1', 'Tre uomini e una gamba', 'media\\copertine\\tre_uomini_e_una_gamba.jpg', 'Un viaggio in auto dal nord al sud del Paese, in occasione di un matrimonio, si trasforma in un\'odissea epica per tre impiegati e una preziosa gamba di legno.', '01:37:51', '1997-12-27', 109, 4),
+(5, 'https://www.youtube.com/embed/UoZkulgtVLM', 'La haine', 'media\\copertine\\la_haine.jpg', 'Il racconto di una giornata nella periferia parigina dopo l\'avvenuto pestaggio durante un interrogatorio ai danni di Abdel Ichah attraverso gli occhi di Vinz, Said e Hubert.', '01:37:55', '1995-05-31', 76, 5),
+(6, 'https://www.youtube.com/embed/Q3hBLv-HLEc', 'Stalker', 'media\\copertine\\stalker.jpg', 'Based on the novel \"Roadside Picnic\" by Arkady and Boris Strugatsky. The Zone that arose on Earth for unknown reasons attracts attention with inexplicable phenomena that occur there. A rumor has spread that in the center of the Zone there is something that gives a person everything he wants. But staying in the Zone is deadly, and therefore it is strictly guarded. There, each for their own reasons, the Writer and the Professor go, the Stalker leads them to the mysterious center, feeling and understanding the Zone...', '02:41:45', '1979-05-25', 182, 6);
 
 -- --------------------------------------------------------
 
@@ -333,7 +337,12 @@ CREATE TABLE `regista` (
 --
 
 INSERT INTO `regista` (`id_regista`, `nome`, `cognome`) VALUES
-(1, 'Todd', 'Looby');
+(1, 'Todd', 'Looby'),
+(2, 'Sergio', 'Leone'),
+(3, 'Oliver', 'Hirschbiegel'),
+(4, 'Massimo', 'Venier'),
+(5, 'Mathieu', 'Kassovitz'),
+(6, 'Andrej', 'Tarkovskij');
 
 --
 -- Indici per le tabelle scaricate
