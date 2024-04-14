@@ -71,7 +71,7 @@
                   <Font name="Cambria Math" size="28.0" />
                </font>
             </Text>
-            <TextField id="paese" fx:id="regista1" editable="false" prefHeight="38.0" prefWidth="380.0">
+            <TextField fx:id="paese"  editable="false" prefHeight="38.0" prefWidth="380.0">
                <font>
                   <Font size="17.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Font name="Cambria Math" size="28.0" />
                </font>
             </Text>
-            <TextField id="anno" fx:id="regista11" editable="false" prefHeight="38.0" prefWidth="380.0">
+            <TextField fx:id="anno" editable="false" prefHeight="38.0" prefWidth="380.0">
                <font>
                   <Font size="17.0" />
                </font>
@@ -91,7 +91,7 @@
                   <Font name="Cambria Math" size="28.0" />
                </font>
             </Text>
-            <TextField id="durata" fx:id="regista2" editable="false" prefHeight="38.0" prefWidth="381.0">
+            <TextField fx:id="durata"  editable="false" prefHeight="38.0" prefWidth="381.0">
                <font>
                   <Font size="17.0" />
                </font>
