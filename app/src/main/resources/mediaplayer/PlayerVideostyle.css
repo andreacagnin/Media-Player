@@ -1,7 +1,4 @@
 /* Styling the root AnchorPane */
-.root {
-    -fx-background-image:url('../mediaplayer/background.png');
-}
 
 /* Styling the page title */
 .title {

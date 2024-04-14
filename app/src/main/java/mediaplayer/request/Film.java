@@ -1,6 +1,5 @@
 package mediaplayer.request;
 
-import java.util.*;
 import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "film")
@@ -11,7 +10,7 @@ public class Film {
     private String copertina;
     private String descrizione;
     private String durata;
-    private Date data_produzione;
+    private String data_produzione;
     private String paese_produzione;
     private int id_regista;
     private String nomeRegista;
@@ -74,11 +73,11 @@ public class Film {
     }
 
     @XmlElement(name = "data_produzione")
-    public Date getData_produzione() {
+    public String getData_produzione() {
         return this.data_produzione;
     }
 
-    public void setData_produzione(Date data_produzione) {
+    public void setData_produzione(String data_produzione) {
         this.data_produzione = data_produzione;
     }
 
@@ -114,8 +113,8 @@ public class Film {
         return this.cognomeRegista;
     }
 
-    public void setcognomeRegista(String nome){
-        this.nomeRegista = nome;
+    public void setcognomeRegista(String cognome){
+        this.cognomeRegista = cognome;
     }
 
 }

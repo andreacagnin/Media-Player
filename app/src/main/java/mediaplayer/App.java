@@ -1,10 +1,8 @@
 package mediaplayer;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import mediaplayer.env.DotEnv;
 import mediaplayer.http.*;
@@ -12,11 +10,8 @@ import mediaplayer.request.*;
 import mediaplayer.view.*;
 
 import java.io.IOException;
-import java.io.StringReader;
 
-import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Unmarshaller;
 
 /**
  * JavaFX App
@@ -50,12 +45,12 @@ public class App extends Application {
         Parent root = loader.load();
 
         controller = loader.getController();
-        controller.setImage1(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
-        controller.setImage2(new DotEnv().get("SERVER") + "/media/copertine/il_buono_il_brutto_il_cattivo.jpg");
-        controller.setImage3(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
-        controller.setImage4(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
-        controller.setImage5(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
-        controller.setImage6(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setImage1(new DotEnv().get("SERVER") + arrayfilms.getFilm(0).getCopertina());
+        controller.setImage2(new DotEnv().get("SERVER") + arrayfilms.getFilm( 1).getCopertina());
+        controller.setImage3(new DotEnv().get("SERVER") + arrayfilms.getFilm( 2).getCopertina());
+        controller.setImage4(new DotEnv().get("SERVER") + arrayfilms.getFilm( 3).getCopertina());
+        controller.setImage5(new DotEnv().get("SERVER") + arrayfilms.getFilm( 4).getCopertina());
+        controller.setImage6(new DotEnv().get("SERVER") +  arrayfilms.getFilm( 5).getCopertina());
         controller.setApp(this);
         controller.setButtons();
 
@@ -114,15 +109,8 @@ public class App extends Application {
 
         PlayerVideo controller2 = loader.getController();
         controller2.setVideo(arrayfilms.getFilm(0).getFilm());
-
-        //DATI DEL FILM DA MOSTRARE
-        arrayfilms.getFilm(0).getTitolo();
-        arrayfilms.getFilm(0).getDescrizione();
-        arrayfilms.getFilm(0).getDurata();
-        arrayfilms.getFilm(0).getData_produzione();
-        arrayfilms.getFilm(0).getPaese_produzione();
-        arrayfilms.getFilm(0).getnomeRegista();
-        arrayfilms.getFilm(0).getcognomeRegista();
+        controller2.setInfo(arrayfilms.getFilm(0).getDescrizione(),arrayfilms.getFilm(0).getcognomeRegista()+" "+arrayfilms.getFilm(0).getnomeRegista(),arrayfilms.getFilm(0).getPaese_produzione(),arrayfilms.getFilm(0).getData_produzione(),arrayfilms.getFilm(0).getDurata() );
+        
 
         scene = new Scene(root);
         stage.setScene(scene);
