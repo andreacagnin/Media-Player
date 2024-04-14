@@ -50,13 +50,18 @@ public class App extends Application {
         Parent root = loader.load();
 
         controller = loader.getController();
-        controller.setImage(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setImage1(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setImage2(new DotEnv().get("SERVER") + "/media/copertine/il_buono_il_brutto_il_cattivo.jpg");
+        controller.setImage3(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setImage4(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setImage5(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
+        controller.setImage6(new DotEnv().get("SERVER") + "/media/copertine/be_good.jpg");
         controller.setApp(this);
         controller.setButtons();
 
         //ELIMINARE IL -1 DOPO
-        for(int i = 0; i < controller.getButtons().size()-1; i++){
-            controller.getButton(i).setId("" + arrayfilms.getFilm(i).getID());
+        for(int i = 0; i < controller.getButtons().size(); i++){
+            controller.getButton(i).setId("" + (arrayfilms.getFilm(i).getID()));
         }
 
         scene = new Scene(root);

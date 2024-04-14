@@ -15,18 +15,35 @@
          </font></Label>
       <Pane fx:id="buttonContainer" layoutX="50.0" layoutY="126.0" prefHeight="758.0" prefWidth="1814.0">
          <children>
-            <Button fx:id="button1" onAction="#btnOKClicked" layoutX="236.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
+            
+            <Button fx:id="button1" layoutX="110.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnOKClicked" prefHeight="270.0" prefWidth="350.0">
                <graphic>
-                  <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  
+                  <ImageView fx:id="imageView1" fitHeight="200.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Button>
-            <Button fx:id="button2" onAction="#btnOKClicked" layoutX="1345.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
+            <Button fx:id="button2" layoutX="710.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnOKClicked" prefHeight="270.0" prefWidth="350.0">
                <graphic>
-                  <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView2" fitHeight="200.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Button>
-            <Button fx:id="button3" onAction="#btnOKClicked" layoutX="786.0" layoutY="198.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="243.0">
+            <Button fx:id="button3" layoutX="1310.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnOKClicked" prefHeight="270.0" prefWidth="350.0">
                <graphic>
-                  <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView3" fitHeight="200.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" />
                </graphic></Button>
+            <Button fx:id="button4" layoutX="110.0" layoutY="500.0" mnemonicParsing="false" onAction="#btnOKClicked" prefHeight="270.0" prefWidth="350.0">
+               <graphic>
+                  <ImageView fx:id="imageView4" fitHeight="200.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button fx:id="button5" layoutX="710.0" layoutY="500.0" mnemonicParsing="false" onAction="#btnOKClicked" prefHeight="270.0" prefWidth="350.0">
+               <graphic>
+                  <ImageView fx:id="imageView5" fitHeight="200.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button fx:id="button6" layoutX="1310.0" layoutY="500.0" mnemonicParsing="false" onAction="#btnOKClicked" prefHeight="270.0" prefWidth="350.0">
+               <graphic>
+                  <ImageView fx:id="imageView6" fitHeight="200.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
          </children></Pane>
    </children>
 </AnchorPane>
