@@ -6,11 +6,11 @@ Il progetto consiste nella riproduzione di video/filmati su un client, il quale 
 ### Descrizione dettagliata
 All'avvio dell'applicazione del client, viene spedita una richiesta al server per visualizzare tutti i film presenti nel database 
 
------ IMG -----
+<img src="https://i.ibb.co/T0KG4gr/Screenshot-2024-04-15-112225.png" alt="Screenshot-2024-04-15-112225" border="0">
 
 Successivamente il client scegliera' il film che desidera guardare, a questo punto viene inoltrata un altra richiesta al server, la cui risposta sara' una completa descrizione del film
 
------ IMG -----
+<img src="https://i.ibb.co/1TYvNpP/Screenshot-2024-04-15-112415.png" alt="Screenshot-2024-04-15-112415" border="0">
 
 Ora il client puo' gustarsi il suo film!
 
@@ -42,13 +42,9 @@ L'unico parametro di input richiesto e' quello del id del film. Viene richiesto 
 ### Esempi di richieste
 Richiesta e risposta degli header dei film
 
------ IMG -----
-
 <img src="https://i.ibb.co/ZJ4764n/films-request.png" alt="films-request" border="0">
 
 Richiesta e risposta di un singolo film
-
------ IMG -----
 
 <img src="https://i.ibb.co/37mWtyY/film-request.png" alt="film-request" border="0">
 
@@ -75,8 +71,6 @@ Per il deployment abbiamo usato GitHub, abbiamo suddiviso il progetto in varie b
 - web-service (server)
 - database
 - documentazione
-
-## Conclusioni
 
 ## Appendici
 
